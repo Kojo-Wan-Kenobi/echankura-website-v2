@@ -48,13 +48,13 @@ export default function AppDownloadCTA() {
           </h2>
 
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12">
-            Download eChankura today and join thousands of South Africans taking control of their financial future.
+            Download eChankura today and start taking control of your financial future.
           </p>
 
           {/* App Store Badges */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <motion.a
-              href="https://apps.apple.com/echankura"
+              href="https://apps.apple.com/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -71,7 +71,7 @@ export default function AppDownloadCTA() {
             </motion.a>
 
             <motion.a
-              href="https://play.google.com/store/apps/echankura"
+              href="https://play.google.com/store/apps"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -88,34 +88,6 @@ export default function AppDownloadCTA() {
             </motion.a>
           </div>
 
-          {/* QR Code */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-block"
-          >
-            <div className="p-4 bg-white rounded-2xl inline-block">
-              {/* QR Code Placeholder */}
-              <div className="w-32 h-32 bg-gradient-to-br from-midnight to-midnight-light rounded-lg flex items-center justify-center">
-                <div className="grid grid-cols-5 gap-1">
-                  {[...Array(25)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`w-4 h-4 rounded-sm ${
-                        Math.random() > 0.5 ? "bg-white" : "bg-midnight"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-            <p className="text-white/60 text-sm mt-3">
-              Scan to download
-            </p>
-          </motion.div>
-
           {/* Trust badge */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -128,7 +100,7 @@ export default function AppDownloadCTA() {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span className="text-sm">256-bit encryption</span>
+              <span className="text-sm">Secure encryption</span>
             </div>
             <div className="flex items-center gap-2 text-white/80">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -140,7 +112,7 @@ export default function AppDownloadCTA() {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <span className="text-sm">500K+ users trust us</span>
+              <span className="text-sm">Built for everyday users</span>
             </div>
           </motion.div>
         </motion.div>

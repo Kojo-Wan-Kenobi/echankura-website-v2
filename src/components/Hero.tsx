@@ -141,7 +141,7 @@ export default function Hero() {
                 <svg className="w-5 h-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
-                <span className="text-sm text-muted">4.8 App Store rating</span>
+                <span className="text-sm text-muted">Trusted experience</span>
               </div>
             </motion.div>
           </motion.div>
@@ -161,59 +161,18 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative z-10 w-[280px] sm:w-[320px] h-[560px] sm:h-[640px] bg-card rounded-[3rem] border-4 border-border p-3 shadow-2xl"
+                className="relative z-10 w-[260px] sm:w-[300px] h-[560px] sm:h-[640px] bg-card rounded-[3rem] border-2 border-border p-1.5 shadow-2xl"
               >
                 {/* Phone Notch */}
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-background rounded-full" />
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-background rounded-full" />
                 
                 {/* Phone Screen */}
                 <div className="w-full h-full bg-card rounded-[2.5rem] overflow-hidden">
-                  {/* App UI Mock */}
-                  <div className="p-6 pt-10">
-                    {/* Balance Card */}
-                    <div className="gradient-bg rounded-2xl p-5 mb-6">
-                      <p className="text-white/70 text-sm mb-1">Available Balance</p>
-                      <p className="text-white text-3xl font-bold">R 12,450.00</p>
-                      <div className="flex items-center gap-2 mt-2">
-                        <span className="text-green-300 text-sm">↑ 12.5%</span>
-                        <span className="text-white/50 text-sm">this month</span>
-                      </div>
-                    </div>
-
-                    {/* Quick Actions */}
-                    <div className="grid grid-cols-4 gap-3 mb-6">
-                      {["Send", "Pay", "Invest", "More"].map((action) => (
-                        <div key={action} className="flex flex-col items-center gap-2">
-                          <div className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center">
-                            <div className="w-5 h-5 rounded bg-gradient-to-r from-teal to-royal-purple" />
-                          </div>
-                          <span className="text-xs text-muted">{action}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Recent Activity */}
-                    <div>
-                      <p className="text-foreground font-semibold mb-3">Recent Activity</p>
-                      {[
-                        { name: "Market Sale", amount: "+R 850", type: "income" },
-                        { name: "Transfer Out", amount: "-R 200", type: "expense" },
-                        { name: "Investment", amount: "+R 45", type: "income" },
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-center justify-between py-3 border-b border-border last:border-0">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center">
-                              <div className={`w-3 h-3 rounded-full ${item.type === "income" ? "bg-teal" : "bg-royal-purple"}`} />
-                            </div>
-                            <span className="text-foreground text-sm">{item.name}</span>
-                          </div>
-                          <span className={`font-semibold text-sm ${item.type === "income" ? "text-teal" : "text-foreground"}`}>
-                            {item.amount}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <img
+                    src="/images/cards.png"
+                    alt="Echankura app interface"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </motion.div>
             </div>

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const images = [
@@ -11,7 +13,60 @@ const images = [
   { alt: "Street vendor accepting payment", text: null },
 ];
 
+const appScreenshots = [
+  {
+    src: "/images/cards.png",
+    alt: "eChankura cards and quick actions",
+    caption: "All your money tools in one place",
+  },
+  {
+    src: "/images/features/banking.png",
+    alt: "eChankura banking features",
+    caption: "Banking that moves at your speed",
+  },
+  {
+    src: "/images/features/ecommerce.png",
+    alt: "eChankura ecommerce experience",
+    caption: "Buy, sell, and grow in the market",
+  },
+  {
+    src: "/images/features/investment.png",
+    alt: "eChankura investment dashboard",
+    caption: "Build wealth with simple investments",
+  },
+  {
+    src: "/images/features/kyc.png",
+    alt: "eChankura onboarding and KYC",
+    caption: "Fast onboarding, trusted security",
+  },
+];
+
 export default function CultureSection() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((current) => (current + 1) % appScreenshots.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const goToPrevious = () => {
+    setActiveSlide((current) =>
+      current === 0 ? appScreenshots.length - 1 : current - 1,
+    );
+  };
+
+  const goToNext = () => {
+    setActiveSlide((current) => (current + 1) % appScreenshots.length);
+  };
+
+  const getSlideAt = (offset: number) => {
+    const length = appScreenshots.length;
+    return appScreenshots[(activeSlide + offset + length) % length];
+  };
+
   return (
     <section className="py-20 md:py-32 bg-card grain relative overflow-hidden transition-colors duration-300">
       {/* Background gradient */}
@@ -88,40 +143,101 @@ export default function CultureSection() {
           ))}
         </div>
 
-        {/* Video Section */}
+        {/* App Screenshots Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-3xl overflow-hidden border border-border"
+          className="relative"
         >
-          <div className="aspect-video bg-gradient-to-br from-card to-background flex items-center justify-center relative">
-            {/* Play button */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-20 h-20 md:w-24 md:h-24 rounded-full gradient-bg flex items-center justify-center glow-teal relative z-10"
+          <div className="relative h-[420px] sm:h-[520px] md:h-[560px] lg:h-[600px]">
+            <motion.div
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.12}
+              onDragEnd={(_, info) => {
+                const swipeThreshold = 70;
+                if (info.offset.x > swipeThreshold) {
+                  goToPrevious();
+                } else if (info.offset.x < -swipeThreshold) {
+                  goToNext();
+                }
+              }}
+              className="h-full w-full touch-pan-y cursor-grab active:cursor-grabbing"
             >
-              <svg className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
+              <div className="grid h-full grid-cols-3 items-center gap-3 md:gap-6 lg:gap-8">
+                {[-1, 0, 1].map((offset) => {
+                  const screenshot = getSlideAt(offset);
+                  const isCenter = offset === 0;
+
+                  return (
+                    <div
+                      key={`${screenshot.src}-${offset}`}
+                      className={`relative h-[250px] sm:h-[340px] md:h-[420px] lg:h-[460px] select-none transition-all duration-500 ${
+                        isCenter
+                          ? "opacity-100 scale-100"
+                          : "opacity-35 scale-90"
+                      }`}
+                    >
+                      <Image
+                        src={screenshot.src}
+                        alt={screenshot.alt}
+                        fill
+                        draggable={false}
+                        className="object-contain pointer-events-none"
+                        sizes="(max-width: 640px) 33vw, 30vw"
+                        priority={isCenter}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </motion.div>
+
+            <button
+              onClick={goToPrevious}
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-border text-foreground/80 hover:text-foreground transition-colors"
+              aria-label="Previous screenshot"
+            >
+              <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-            </motion.button>
+            </button>
 
-            {/* Video placeholder text */}
-            <div className="absolute bottom-8 left-8 right-8">
-              <p className="text-foreground font-bold text-xl md:text-2xl mb-2">
-                See eChankura in action
-              </p>
-              <p className="text-muted text-sm md:text-base">
-                Watch how real people are using eChankura to transform their financial lives
-              </p>
-            </div>
+            <button
+              onClick={goToNext}
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-border text-foreground/80 hover:text-foreground transition-colors"
+              aria-label="Next screenshot"
+            >
+              <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
 
-            {/* Decorative elements */}
-            <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-background/80 border border-border text-sm text-muted">
-              0:30
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-2">
+              {appScreenshots.map((screenshot, index) => (
+                <button
+                  key={screenshot.src + "-dot"}
+                  onClick={() => setActiveSlide(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    activeSlide === index
+                      ? "w-8 bg-royal-purple"
+                      : "w-2 bg-foreground/30 hover:bg-foreground/50"
+                  }`}
+                  aria-label={`Go to screenshot ${index + 1}`}
+                />
+              ))}
             </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-2xl md:text-3xl font-bold gradient-text mb-2">
+              eChankura in action
+            </p>
+            <p className="text-muted text-sm md:text-base">
+              {appScreenshots[activeSlide].caption}
+            </p>
           </div>
         </motion.div>
 

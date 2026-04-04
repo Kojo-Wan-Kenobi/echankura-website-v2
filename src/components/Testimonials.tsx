@@ -9,8 +9,7 @@ const testimonials = [
     name: "Thabo Mokoena",
     role: "Spaza Shop Owner",
     location: "Alexandra, Johannesburg",
-    quote: "I used to keep my money under my mattress. Now I have a real bank account, and my customers can pay me digitally. My business has grown 40% since I joined eChankura.",
-    rating: 5,
+    quote: "I used to keep my money under my mattress. Now I have a real bank account, and my customers can pay me digitally. My business has grown since I joined eChankura.",
   },
   {
     id: 2,
@@ -18,23 +17,20 @@ const testimonials = [
     role: "Fashion Designer",
     location: "Soweto, Johannesburg",
     quote: "The marketplace changed everything for me. I went from selling at the local market to shipping clothes all over South Africa. eChankura made me a real entrepreneur.",
-    rating: 5,
   },
   {
     id: 3,
     name: "Sipho Nkosi",
     role: "University Student",
     location: "Durban, KZN",
-    quote: "I started investing with just R100 a month. Now I own pieces of companies I never thought I could afford. This is financial freedom for our generation.",
-    rating: 5,
+    quote: "I started investing at my own pace. Now I own pieces of companies I never thought I could afford. This is financial freedom for our generation.",
   },
   {
     id: 4,
     name: "Lerato Molefe",
     role: "Food Vendor",
     location: "Khayelitsha, Cape Town",
-    quote: "The banks always said no. eChankura said yes. Now I accept card payments at my food stall and my customers love it. My income has doubled.",
-    rating: 5,
+    quote: "The banks always said no. eChankura said yes. Now I accept card payments at my food stall and my customers love it. My income has grown.",
   },
   {
     id: 5,
@@ -42,7 +38,6 @@ const testimonials = [
     role: "Taxi Owner",
     location: "Umlazi, Durban",
     quote: "Managing my fleet's finances used to be chaos. Now everything is in one app. I can see every payment, every expense. eChankura brought order to my business.",
-    rating: 5,
   },
 ];
 
@@ -98,15 +93,6 @@ export default function Testimonials() {
                 </div>
 
                 <div className="relative z-10">
-                  {/* Stars */}
-                  <div className="flex items-center gap-1 mb-6">
-                    {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                      <svg key={i} className="w-5 h-5 text-teal" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-
                   {/* Quote */}
                   <blockquote className="text-xl md:text-2xl text-foreground font-medium leading-relaxed mb-8">
                     {testimonials[currentIndex].quote}

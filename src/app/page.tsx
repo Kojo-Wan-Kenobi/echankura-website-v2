@@ -5,7 +5,6 @@ import Features from "@/components/Features";
 import CultureSection from "@/components/CultureSection";
 import HowItWorks from "@/components/HowItWorks";
 import MarketplacePreview from "@/components/MarketplacePreview";
-import Testimonials from "@/components/Testimonials";
 import AppDownloadCTA from "@/components/AppDownloadCTA";
 import Footer from "@/components/Footer";
 
@@ -20,7 +19,6 @@ export default function Home() {
         <CultureSection />
         <HowItWorks />
         <MarketplacePreview />
-        <Testimonials />
         <AppDownloadCTA />
       </main>
       <Footer />

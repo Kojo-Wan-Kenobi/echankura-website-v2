@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "./ThemeProvider";
 
@@ -9,7 +10,6 @@ const navLinks = [
   { href: "#features", label: "Features" },
   { href: "#how-it-works", label: "How It Works" },
   { href: "#marketplace", label: "Marketplace" },
-  { href: "/investors", label: "Investors" },
 ];
 
 export default function Navbar() {
@@ -38,14 +38,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">e</span>
-            </div>
-            <span className="text-xl font-bold">
-              <span className="text-foreground">e</span>
-              <span className="gradient-text">Chankura</span>
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/logo.png"
+              alt="eChankura"
+              width={458}
+              height={218}
+              priority
+              unoptimized
+              className="block h-14 md:h-16 w-auto bg-transparent"
+              draggable={false}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -82,6 +85,15 @@ export default function Navbar() {
               )}
             </motion.button>
             
+            <Link
+              href="https://retail.echankura.com"
+              target="_blank"
+              rel="noreferrer"
+              className="px-6 py-2.5 gradient-bg rounded-full text-white font-semibold text-sm hover:opacity-90 transition-opacity"
+            >
+              Retail Solution
+            </Link>
+
             <Link
               href="#download"
               className="px-6 py-2.5 gradient-bg rounded-full text-white font-semibold text-sm hover:opacity-90 transition-opacity"
@@ -160,6 +172,15 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="https://retail.echankura.com"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-center px-6 py-3 gradient-bg rounded-full text-white font-semibold text-sm mt-4"
+              >
+                Retail Solution
+              </Link>
               <Link
                 href="#download"
                 onClick={() => setMobileMenuOpen(false)}

@@ -1,55 +1,56 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const categories = [
   {
     name: "Fashion & Clothing",
-    items: "12,450+",
-    icon: "👕",
+    items: "Popular category",
+    image: "/images/clothing.jpg",
     gradient: "from-pink-500 to-rose-500",
   },
   {
     name: "Electronics",
-    items: "8,320+",
-    icon: "📱",
+    items: "Popular category",
+    image: "/images/electronics.jpg",
     gradient: "from-blue-500 to-cyan-500",
   },
   {
     name: "Home & Living",
-    items: "6,780+",
-    icon: "🏠",
+    items: "Popular category",
+    image: "/images/home.jpg",
     gradient: "from-amber-500 to-orange-500",
   },
   {
     name: "Food & Groceries",
-    items: "15,200+",
-    icon: "🍎",
+    items: "Popular category",
+    image: "/images/grocery.jpg",
     gradient: "from-green-500 to-emerald-500",
   },
   {
     name: "Beauty & Health",
-    items: "9,150+",
-    icon: "✨",
+    items: "Popular category",
+    image: "/images/beauty.jpg",
     gradient: "from-purple-500 to-violet-500",
   },
   {
     name: "Services",
-    items: "4,890+",
-    icon: "🔧",
+    items: "Popular category",
+    image: "/images/services.jpg",
     gradient: "from-slate-500 to-gray-500",
   },
   {
     name: "Arts & Crafts",
-    items: "3,420+",
-    icon: "🎨",
+    items: "Popular category",
+    image: "/images/arts.jpg",
     gradient: "from-red-500 to-pink-500",
   },
   {
     name: "Automotive",
-    items: "2,150+",
-    icon: "🚗",
+    items: "Popular category",
+    image: "/images/automotive.jpg",
     gradient: "from-indigo-500 to-blue-500",
   },
 ];
@@ -85,7 +86,7 @@ export default function MarketplacePreview() {
             </h2>
             <p className="text-muted text-lg max-w-xl">
               Buy and sell anything. From fashion to food, electronics to services — 
-              join thousands of sellers building businesses in the eChankura marketplace.
+              join a marketplace where sellers are building businesses every day.
             </p>
           </div>
 
@@ -143,9 +144,16 @@ export default function MarketplacePreview() {
                   </div>
 
                   <div className="relative z-10">
-                    {/* Category Icon */}
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-3xl mb-6`}>
-                      {category.icon}
+                    {/* Category Image */}
+                    <div className="relative w-full h-40 rounded-2xl overflow-hidden mb-6 border border-border/50">
+                      <Image
+                        src={category.image}
+                        alt={category.name}
+                        fill
+                        className="object-cover"
+                        sizes="280px"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${category.gradient} opacity-15`} />
                     </div>
 
                     {/* Category Info */}
@@ -153,7 +161,7 @@ export default function MarketplacePreview() {
                       {category.name}
                     </h3>
                     <p className="text-muted text-sm mb-4">
-                      {category.items} listings
+                      {category.items}
                     </p>
 
                     {/* Sample items preview */}
@@ -204,7 +212,7 @@ export default function MarketplacePreview() {
                 Ready to start selling?
               </h3>
               <p className="text-muted max-w-lg">
-                Join thousands of sellers on eChankura. Low fees, instant payments, 
+                Join sellers on eChankura. Low fees, instant payments, 
                 and a built-in customer base ready to buy.
               </p>
             </div>

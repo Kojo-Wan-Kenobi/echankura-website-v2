@@ -7,49 +7,53 @@ const features = [
   {
     id: "banking",
     title: "Banking",
+    // image: "/images/features/banking.png",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
     shortDesc: "Safe accounts, instant transfers, zero fees",
-    longDesc: "Open a fully-featured bank account in minutes. Send money instantly to anyone, pay bills, and manage your finances with zero monthly fees. Your money is protected by bank-grade security and FSCA regulation.",
+    longDesc: "Open a fully-featured bank account quickly. Send money instantly to anyone, pay bills, and manage your finances with zero monthly fees. Your money is protected by bank-grade security and FSCA regulation.",
     color: "teal",
   },
   {
     id: "ecommerce",
     title: "eCommerce",
+    // image: "/images/features/ecommerce.png",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
       </svg>
     ),
     shortDesc: "Buy, sell, trade — your marketplace",
-    longDesc: "Turn your hustle into a business. Set up your store, list products, accept payments, and reach thousands of buyers across South Africa. Low seller fees mean more profit in your pocket.",
+    longDesc: "Turn your hustle into a business. Set up your store, list products, accept payments, and reach buyers across South Africa. Low seller fees mean more profit in your pocket.",
     color: "purple",
   },
   {
     id: "investment",
     title: "Fractional Investment",
+    // image: "/images/features/investment.png",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
       </svg>
     ),
     shortDesc: "Own a piece of something bigger",
-    longDesc: "Start investing with as little as R50. Own fractions of stocks, ETFs, and other assets that were previously out of reach. Build wealth at your own pace with automated savings and investment plans.",
+    longDesc: "Start investing with an amount that works for you. Own fractions of stocks, ETFs, and other assets that were previously out of reach. Build wealth at your own pace with automated savings and investment plans.",
     color: "teal",
   },
   {
     id: "kyc",
     title: "KYC/Onboarding",
+    // image: "/images/features/kyc.png",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
     shortDesc: "Verified in minutes, not days",
-    longDesc: "Our smart KYC process gets you up and running in under 5 minutes. Just your ID and a selfie. No paperwork, no branch visits, no waiting. Start using all features immediately after verification.",
+    longDesc: "Our smart KYC process gets you up and running quickly. Just your ID and a selfie. No paperwork, no branch visits, no waiting. Start using all features immediately after verification.",
     color: "purple",
   },
 ];
@@ -141,7 +145,11 @@ export default function Features() {
                     )}
                   </AnimatePresence>
 
-                  {/* Mini App Screenshot Placeholder */}
+                  {/**
+                   * Mini App Screenshot Placeholder
+                   * Restore this block and the `image` fields in `features` when screenshots are ready again.
+                   */}
+                  {/**
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{
@@ -151,12 +159,15 @@ export default function Features() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="mt-6 rounded-xl bg-card border border-border p-4 flex items-center justify-center">
-                      <div className="w-full h-32 rounded-lg bg-gradient-to-br from-card to-background flex items-center justify-center">
-                        <span className="text-sm text-muted">App Screenshot</span>
-                      </div>
+                    <div className="mt-6 rounded-xl bg-card border border-border p-4">
+                      <img
+                        src={feature.image}
+                        alt={`${feature.title} screenshot`}
+                        className="w-full h-auto rounded-lg object-contain"
+                      />
                     </div>
                   </motion.div>
+                  */}
 
                   {/* Arrow indicator */}
                   <div className={`mt-6 flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${
