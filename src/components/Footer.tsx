@@ -9,13 +9,9 @@ const footerLinks = {
   ],
   company: [
     { href: "https://tafaricapital.com/about-us/", label: "About Us" },
-    { href: "#careers", label: "Careers" },
-    { href: "#press", label: "Press" },
   ],
   legal: [
-    { href: "/terms", label: "Terms of Service" },
     { href: "https://tafaricapital.com/privacy-policy-2/", label: "Privacy Policy" },
-    { href: "/compliance", label: "Compliance" },
   ],
 };
 
