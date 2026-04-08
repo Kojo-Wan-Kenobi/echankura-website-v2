@@ -1,34 +1,6 @@
 @import "tailwindcss";
 
 :root,
-[data-theme="dark"] {
-  /* eChankura Brand Colors */
-  --midnight: #0d0d0f;
-  --midnight-light: #1a1a1f;
-  --teal: #00d4bf;
-  --teal-dark: #00a89a;
-  --royal-purple: #765cf2;
-  --royal-purple-dark: #5a45c9;
-  
-  /* Semantic colors - Dark Mode */
-  --background: var(--midnight);
-  --foreground: #f5f5f7;
-  --muted: #8b8b8f;
-  --card: #141418;
-  --card-hover: #1c1c22;
-  --border: #2a2a30;
-  
-  /* Hero orbs */
-  --orb-teal: rgba(0, 212, 191, 0.2);
-  --orb-purple: rgba(118, 92, 242, 0.2);
-  
-  /* Social proof */
-  --ticker-bg: var(--midnight-light);
-  
-  /* Investor section */
-  --investor-bg: #111114;
-}
-
 [data-theme="light"] {
   /* eChankura Brand Colors - adjusted for light */
   --midnight: #ffffff;
@@ -55,6 +27,34 @@
   
   /* Investor section */
   --investor-bg: #f8f9fa;
+}
+
+[data-theme="dark"] {
+  /* eChankura Brand Colors */
+  --midnight: #0d0d0f;
+  --midnight-light: #1a1a1f;
+  --teal: #00d4bf;
+  --teal-dark: #00a89a;
+  --royal-purple: #765cf2;
+  --royal-purple-dark: #5a45c9;
+  
+  /* Semantic colors - Dark Mode */
+  --background: var(--midnight);
+  --foreground: #f5f5f7;
+  --muted: #8b8b8f;
+  --card: #141418;
+  --card-hover: #1c1c22;
+  --border: #2a2a30;
+  
+  /* Hero orbs */
+  --orb-teal: rgba(0, 212, 191, 0.2);
+  --orb-purple: rgba(118, 92, 242, 0.2);
+  
+  /* Social proof */
+  --ticker-bg: var(--midnight-light);
+  
+  /* Investor section */
+  --investor-bg: #111114;
 }
 
 @theme inline {

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useTheme } from "./ThemeProvider";
 
 const footerLinks = {
   product: [
@@ -46,6 +49,8 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <footer className="bg-card border-t border-border transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -151,9 +156,19 @@ export default function Footer() {
             <p className="text-muted text-xs text-center md:text-left">
               © {new Date().getFullYear()} eChankura. All rights reserved. eChankura is a registered financial services provider.
             </p>
-            <p className="text-muted text-xs text-center md:text-right">
-              Regulated by the South African Reserve Bank & Financial Sector Conduct Authority
-            </p>
+            <div className="flex items-center gap-4">
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="text-muted/80 hover:text-muted text-xs transition-colors duration-200"
+                aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+              >
+                Theme: {theme === "light" ? "Light" : "Dark"}
+              </button>
+              <p className="text-muted text-xs text-center md:text-right">
+                Regulated by the South African Reserve Bank & Financial Sector Conduct Authority
+              </p>
+            </div>
           </div>
         </div>
       </div>
