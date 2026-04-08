@@ -70,17 +70,6 @@ export default function Footer() {
               Built for the hustle. The all-in-one fintech platform for banking, commerce, and investing.
             </p>
             
-            {/* Language Toggle */}
-            <div className="flex items-center gap-2 mb-6">
-              <span className="text-xs text-muted">Language:</span>
-              <select className="bg-card border border-border rounded-lg px-3 py-1.5 text-sm text-foreground">
-                <option value="en">English</option>
-                <option value="zu">isiZulu</option>
-                <option value="xh">isiXhosa</option>
-                <option value="st">Sesotho</option>
-              </select>
-            </div>
-
             {/* Social Links */}
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => (

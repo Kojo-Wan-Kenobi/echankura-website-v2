@@ -121,7 +121,7 @@ export default function MarketplacePreview() {
 
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4 snap-x snap-mandatory"
+            className="flex gap-6 overflow-x-auto scrollbar-hide pt-3 pb-4 -mx-4 px-4 snap-x snap-mandatory"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {categories.map((category, index) => (
@@ -172,25 +172,8 @@ export default function MarketplacePreview() {
                           className="w-8 h-8 rounded-full bg-card border-2 border-card"
                         />
                       ))}
-                      <div className="w-8 h-8 rounded-full bg-card border-2 border-card flex items-center justify-center">
-                        <span className="text-xs text-muted">+</span>
-                      </div>
                     </div>
 
-                    {/* Browse link */}
-                    <div className="flex items-center gap-2 text-sm font-medium text-teal group-hover:text-foreground transition-colors">
-                      <span>Browse category</span>
-                      <motion.svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        animate={{ x: [0, 4, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </motion.svg>
-                    </div>
                   </div>
                 </motion.div>
               </motion.div>
